@@ -1,1 +1,12 @@
 c:\users\t_s_g\documents\visual studio 2015\Projects\MagicMapperData\MagicMapperData\bin\Debug\MagicMapperData.exe.config
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\MagicMapperData.exe.config
+F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.csprojResolveAssemblyReference.cache
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\NLog.config
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\MagicMapperData.exe
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\MagicMapperData.pdb
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\Ninject.dll
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\NLog.dll
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\Ninject.xml
+F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\NLog.xml
+F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.exe
+F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.pdb
