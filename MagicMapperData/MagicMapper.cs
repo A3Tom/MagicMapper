@@ -24,7 +24,7 @@
             finally
             {
                 Console.WriteLine("Magic Mapper Closing.");
-                Thread.Sleep(2500);
+                Thread.Sleep(92500);
             }
 
         }

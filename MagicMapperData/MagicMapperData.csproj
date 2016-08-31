@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -67,7 +67,7 @@
     <Compile Include="Interfaces\IFileReader.cs" />
     <Compile Include="Interfaces\IFileSaver.cs" />
     <Compile Include="Interfaces\ILog.cs" />
-    <Compile Include="Models\FileInfo.cs" />
+    <Compile Include="Models\FileDetail.cs" />
     <Compile Include="MagicMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

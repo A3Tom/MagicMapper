@@ -1,0 +1,1570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2F25FFE-613F-4874-8465-12DFC7804351}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MandCo.SystemAccess</RootNamespace>
+    <AssemblyName>MandCo.SystemAccess</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\dlls\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.5.1</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Design" />
+    <Reference Include="Firefly.Box">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Firefly.Box.dll</HintPath>
+    </Reference>
+    <Reference Include="ENV">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dlls\ENV.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <Compile Include="Models\DataSources.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header1Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\LargeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\LookupApplicationsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LookupApplicationsView.Designer.cs">
+      <DependentUpon>LookupApplicationsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupApplications.cs" />
+    <Compile Include="MandCo\Theme\Printing\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Label.Designer.cs">
+      <DependentUpon>Label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\WindowSDefault.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvRaiseEventSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvRaiseEventSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlDvRaiseEventSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlDvRaiseEventKillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlDvRaiseEventKillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlDvRaiseEventKillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlDvRaiseEventUsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvRaiseEventUsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlDvRaiseEventUsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\UpdateOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AccessControlDvRaiseEvent.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved42.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\No3DEffect1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Types\User1.cs" />
+    <Compile Include="Printing\Printers.cs" />
+    <Compile Include="Types\UserName.cs" />
+    <Compile Include="Types\Application1.cs" />
+    <Compile Include="MandCo\Theme\Controls\Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ControlSDefault.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\InputOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined31.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ProgramTree.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Form.Designer.cs">
+      <DependentUpon>Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FixedSizeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Label.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Label.Designer.cs">
+      <DependentUpon>Label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\MackaysUserDefined.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\ReportSection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\ReportSection.Designer.cs">
+      <DependentUpon>ReportSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\Group_txt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\Group_txt.Designer.cs">
+      <DependentUpon>Group_txt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\SubForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\DefaultFreeText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\SubForm.Designer.cs">
+      <DependentUpon>SubForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\FlowOutput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\TextSection.cs" />
+    <Compile Include="MandCo\Theme\Colors\UnparkedItems.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved40.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessProcessBase.cs" />
+    <Compile Include="FlowUIControllerBase.cs" />
+    <Compile Include="UIControllerBase.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationPrograms.cs" />
+    <Compile Include="ApplicationEntities.cs" />
+    <Compile Include="Views\ApplicationMdi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ApplicationMdi.Designer.cs">
+      <DependentUpon>ApplicationMdi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\BreakPoint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="MandCo\Theme\Controls\TreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\TreeView.Designer.cs">
+      <DependentUpon>TreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\DefaultHelpWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\HotSpot.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined33.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header2Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved41.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Default3DEffect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\MackaysUserDefined1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\BrowseOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined34.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlSection.cs" />
+    <Compile Include="MandCo\Theme\Colors\DefaultPrintFormColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header3Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\HyperlinkPushbuttonText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\AlternatingTableRow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ExitOSOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header4Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\DefaultHyperlink.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\InheritedProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header5Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\HyperlinkPushbuttonVisited.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined36.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\TextPrintingStyles\Map.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header6Italic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvAPSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvAPSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlDvAPSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlDvAPKillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined37.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\RaiseEventOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlDvAPKillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlDvAPKillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\HTMLDefaultBoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvAPUsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDvAPUsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlDvAPUsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\TextLabel.cs" />
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ActiveX.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined38.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ActiveX.Designer.cs">
+      <DependentUpon>ActiveX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\HandlerLevel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlLabel.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\HyperlinkPushBWalkthrough.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved16.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlTable.cs" />
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AccessControlDvAP.cs" />
+    <Compile Include="MandCo\Theme\Controls\TextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved17.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\DefaultImportVisualFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlTableRow.cs" />
+    <Compile Include="MandCo\Theme\Colors\CommentedEntry.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation90Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved18.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header1BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlTableCell.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Unused.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlTextBox.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved19.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUsersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\TextBox.cs" />
+    <Compile Include="MandCo\Theme\IO\Html\HtmlLine.cs" />
+    <Compile Include="MandCo\Theme\Printing\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\RichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\RichTextBox.Designer.cs">
+      <DependentUpon>RichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\BrokenProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ComponentObject.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation135Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Shape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Shape.Designer.cs">
+      <DependentUpon>Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\RichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\RichTextBox.Designer.cs">
+      <DependentUpon>RichTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Unused1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header2BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation180Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\HelpString.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation225Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Line.Designer.cs">
+      <DependentUpon>Line.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\AsDataProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation270Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\VariablePalette.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Unused2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved20.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\InheritedProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header3BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\DefaultImportMonosizeFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\GroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\GroupBox.Designer.cs">
+      <DependentUpon>GroupBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\BrokenProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUsersView.Designer.cs">
+      <DependentUpon>BrowseUsersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Shape.cs" />
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\AsDataProperty.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersDvUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersDvUsers.Designer.cs">
+      <DependentUpon>MaintUsersDvUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintUsersDvEmailAddresses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersDvEmailAddresses.Designer.cs">
+      <DependentUpon>MaintUsersDvEmailAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintUsersDv.cs" />
+    <Compile Include="MandCo\Theme\Fonts\DefaultImportVisualFontB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header4BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined12.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Line.Designer.cs">
+      <DependentUpon>Line.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation90DegB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BrowseUsers.cs" />
+    <Compile Include="MandCo\Theme\IO\Line.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Unused3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\Grid.Designer.cs">
+      <DependentUpon>Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved23.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\GridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\GridColumn.Designer.cs">
+      <DependentUpon>GridColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved24.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header5BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved25.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined13.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\MarkingColumnControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation135DegB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved12.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined14.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation180DegB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved26.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Shape.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Shape.Designer.cs">
+      <DependentUpon>Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ComponentBuilderWarning.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved27.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlGrid.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header6BoldItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation225DegB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DebugHelper.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved28.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ApplicationWorkspace.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseGroupsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseGroupsView.Designer.cs">
+      <DependentUpon>BrowseGroupsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Windows3DTableTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="No1OffPopUserEmailTable.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved13.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\FontRotation270DegB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined15.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\PushButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved29.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\TaskEditorText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Grid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved14.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\Grid.Designer.cs">
+      <DependentUpon>Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined16.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1View.Designer.cs">
+      <DependentUpon>AccessControl1View.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseGroups.cs" />
+    <Compile Include="MandCo\Theme\Fonts\DefaultImportMonosizeFontB.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved15.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined17.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\PictureBox.Designer.cs">
+      <DependentUpon>PictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\GridColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Printing\GridColumn.Designer.cs">
+      <DependentUpon>GridColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\TableTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved16.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined18.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\BarCode39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved23.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1SystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\TableField.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\MenuBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1SystemAccess.Designer.cs">
+      <DependentUpon>AccessControl1SystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Window.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1OpenApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1OpenApplication.Designer.cs">
+      <DependentUpon>AccessControl1OpenApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlPictureBox.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1GoTopApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1GoTopApplications.Designer.cs">
+      <DependentUpon>AccessControl1GoTopApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\EditField.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1UsersAccessControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1UsersAccessControl.Designer.cs">
+      <DependentUpon>AccessControl1UsersAccessControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved24.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1KillActiveUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1KillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControl1KillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControl1KillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControl1KillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControl1KillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControl1CreateAccessList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\WizardLargeTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1CreateAccessList.Designer.cs">
+      <DependentUpon>AccessControl1CreateAccessList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlKillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\WizardSmallTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlKillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlKillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlUsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlUsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlUsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined19.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AccessControl.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved17.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved31.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Arial7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\PictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\PictureBox.Designer.cs">
+      <DependentUpon>PictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Arial7Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined20.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\WizardText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved18.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersUsers.Designer.cs">
+      <DependentUpon>MaintUsersUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintUsersEmailAddresses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersEmailAddresses.Designer.cs">
+      <DependentUpon>MaintUsersEmailAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintUsers.cs" />
+    <Compile Include="MandCo\Theme\Controls\CheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\No3DEffect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1UsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl1UsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControl1UsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved19.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\CheckBox.Designer.cs">
+      <DependentUpon>CheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControl1.cs" />
+    <Compile Include="MandCo\Theme\Fonts\BarCode391.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved20.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\IO\Html\HtmlGridColumn.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined22.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\DialogWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\LookupGroupsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Toolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined23.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\DialogFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ScrollBar.Designer.cs">
+      <DependentUpon>ScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LookupGroupsView.Designer.cs">
+      <DependentUpon>LookupGroupsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupGroups.cs" />
+    <Compile Include="MandCo\Theme\Colors\DialogTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseApplicationsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseApplicationsView.Designer.cs">
+      <DependentUpon>BrowseApplicationsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseApplications.cs" />
+    <Compile Include="MandCo\Theme\Colors\StatusBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ListWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved21.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\RadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\RadioButton.Designer.cs">
+      <DependentUpon>RadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\BarCode3990Deg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved33.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ListFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved25.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\MaintGroupsGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintGroupsGroups.Designer.cs">
+      <DependentUpon>MaintGroupsGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintGroups.cs" />
+    <Compile Include="MandCo\Theme\Fonts\BarCode392.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined24.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ListBox.Designer.cs">
+      <DependentUpon>ListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\HTMLDefault.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved10.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\ListTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved26.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved34.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\PopupWindows.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved11.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved12.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved36.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\PopupWindowFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\BarCode3990Deg1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined25.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved37.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved13.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUserGroupsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUserGroupsView.Designer.cs">
+      <DependentUpon>BrowseUserGroupsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseUserGroups.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved38.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved14.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved27.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\MaintApplicationsApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\BarCode39Extended.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined26.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved39.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved15.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\PopupWindowTitles.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\TabControl.Designer.cs">
+      <DependentUpon>TabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved28.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\LookupUsersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LookupUsersView.Designer.cs">
+      <DependentUpon>LookupUsersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LookupUsers.cs" />
+    <Compile Include="MandCo\Theme\Colors\Reserved40.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\MaintApplicationsApplications.Designer.cs">
+      <DependentUpon>MaintApplicationsApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintApplications.cs" />
+    <Compile Include="MandCo\Theme\Colors\Map.cs" />
+    <Compile Include="MandCo\Theme\Colors\DescriptionText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\RemarkOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved29.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\Reserved41.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\GroupText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\SelectOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\TitleInFocus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined27.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Controls\ComboBox.Designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BrowseUserAccessListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUserAccessListView.Designer.cs">
+      <DependentUpon>BrowseUserAccessListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseUserAccessList.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseGroupApplicationsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseGroupApplicationsView.Designer.cs">
+      <DependentUpon>BrowseGroupApplicationsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseGroupApplications.cs" />
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined28.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved30.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportGroupApplications.cs" />
+    <Compile Include="Views\AccessControlDVSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDVSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlDVSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlDVKillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlDVKillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlDVKillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlDVUsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlDVUsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlDVUsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControlDV.cs" />
+    <Compile Include="MandCo\Theme\Colors\VerifyOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\TitleOutOfFocus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\CallOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportUserEmailAddresses.cs" />
+    <Compile Include="Models\UserAccessList.cs" />
+    <Compile Include="MandCo\Theme\Colors\EvaluateOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\LinkEndLinkOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Version.cs" />
+    <Compile Include="ImportControl.cs" />
+    <Compile Include="MandCo\Theme\Fonts\ToolkitWindowsFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Colors\BlockEndBlockOperation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\UserEmailAddresses.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header6Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlPvJuly07SystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlPvJuly07SystemAccess.Designer.cs">
+      <DependentUpon>AccessControlPvJuly07SystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlPvJuly07KillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\Control.cs" />
+    <Compile Include="Views\AttachUserToGroupsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlPvJuly07KillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlPvJuly07KillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlPvJuly07UsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlPvJuly07UsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlPvJuly07UsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControlPvJuly07.cs" />
+    <Compile Include="Models\Applications1.cs" />
+    <Compile Include="Views\AttachUserToGroupsView.Designer.cs">
+      <DependentUpon>AttachUserToGroupsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttachUserToGroupsGroups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AttachUserToGroupsGroups.Designer.cs">
+      <DependentUpon>AttachUserToGroupsGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttachUserToGroups.cs" />
+    <Compile Include="MandCo\Theme\Fonts\MackaysUserDefined29.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved31.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\SmallFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\HTMLDefaultItalic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved37.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\HTMLDefaultBold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved32.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUserEmailAddressesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseUserEmailAddressesView.Designer.cs">
+      <DependentUpon>BrowseUserEmailAddressesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseUserEmailAddresses.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved38.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header1Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved33.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Map.cs" />
+    <Compile Include="Views\BrowseControlView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BrowseControlView.Designer.cs">
+      <DependentUpon>BrowseControlView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrowseControl.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header2Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AttachGroupToApplicationsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved34.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AttachGroupToApplicationsView.Designer.cs">
+      <DependentUpon>AttachGroupToApplicationsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttachGroupToApplicationsApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AttachGroupToApplicationsApplications.Designer.cs">
+      <DependentUpon>AttachGroupToApplicationsApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AttachGroupToApplications.cs" />
+    <Compile Include="Views\AccessControlORIGINALSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlORIGINALSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlORIGINALSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControlORIGINALKillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControlORIGINALKillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControlORIGINALKillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControlORIGINALUsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlORIGINALUsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControlORIGINALUsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControlORIGINAL.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved35.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header3Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExportUsers.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Reserved8.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DefaultContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\DefaultContextMenu.Designer.cs">
+      <DependentUpon>DefaultContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved36.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Header4Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\Reserved9.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExportGroups.cs" />
+    <Compile Include="Views\AccessControlPvSystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControlPvSystemAccess.Designer.cs">
+      <DependentUpon>AccessControlPvSystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControlPv.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Header5Bold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\TabText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExportApplications.cs" />
+    <Compile Include="MandCo\Theme\Fonts\Tooltips.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExportUserGroups.cs" />
+    <Compile Include="ExportGroupApplications.cs" />
+    <Compile Include="ExportUserEmailAddresses.cs" />
+    <Compile Include="ExportControl.cs" />
+    <Compile Include="MandCo\Theme\Fonts\TableFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportUsers.cs" />
+    <Compile Include="MandCo\Theme\Fonts\TableTitle1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportGroups.cs" />
+    <Compile Include="MandCo\Theme\Fonts\DialogFields.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportApplications.cs" />
+    <Compile Include="MandCo\Theme\Fonts\DialogText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ContextMenuMap.cs" />
+    <Compile Include="MandCo\Theme\Fonts\PushButtonText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\StatusLineText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MandCo\Theme\Fonts\ConfirmMessagesFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ImportUserGroups.cs" />
+    <Compile Include="Views\Controls\V9CompatibleDefaultTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Controls\V9CompatibleDefaultTable.Designer.cs">
+      <DependentUpon>V9CompatibleDefaultTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Types\Group1.cs" />
+    <Compile Include="Views\MaintUsersPvUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndProgram.cs" />
+    <Compile Include="Views\MaintUsersPvUsers.Designer.cs">
+      <DependentUpon>MaintUsersPvUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaintUsersPvEmailAddresses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaintUsersPvEmailAddresses.Designer.cs">
+      <DependentUpon>MaintUsersPvEmailAddresses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintUsersPv.cs" />
+    <Compile Include="Views\DocsListDocumentationList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DocsListDocumentationList.Designer.cs">
+      <DependentUpon>DocsListDocumentationList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocsList.cs" />
+    <Compile Include="Views\AccessControl2SystemAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl2SystemAccess.Designer.cs">
+      <DependentUpon>AccessControl2SystemAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Printing\AccessControl2KillActiveUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Printing\AccessControl2KillActiveUsers.Designer.cs">
+      <DependentUpon>AccessControl2KillActiveUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccessControl2UsersDisAllowed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccessControl2UsersDisAllowed.Designer.cs">
+      <DependentUpon>AccessControl2UsersDisAllowed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccessControl2.cs" />
+    <Compile Include="IntranetGo.cs" />
+    <Compile Include="WebGo.cs" />
+    <Compile Include="Views\HelpGroup.cs" />
+    <Compile Include="Views\HelpUser.cs" />
+    <Compile Include="Views\HelpApplication.cs" />
+    <Compile Include="Views\HelpApplicationNumber.cs" />
+    <Compile Include="Roles.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\Groups1.cs" />
+    <Compile Include="Models\Applications.cs" />
+    <Compile Include="Models\UserGroups.cs" />
+    <Compile Include="Models\GroupApplications.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccessControlDVSystemAccess.resx">
+      <DependentUpon>AccessControlDVSystemAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ApplicationMdi.resx">
+      <DependentUpon>ApplicationMdi.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <!--
+    <ProjectReference Include="..\Witch\Firefly.Box.csproj">
+          <Project>{D80CB982-86AB-4AB4-94D3-D990D3246AB2}</Project>
+          <Name>Firefly.Box</Name>
+    </ProjectReference>-->
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MandCo.SystemAccess.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="security">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <!-- here i am suposed to be-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+  rem editbin.exe /NXCOMPAT:NO "$(TargetPath)"
+  if NOT EXIST "$(TargetDir)oci.dll" (copy "$(ProjectDir)..\OracleClient\*.*" "$(TargetDir)*.*" /y)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
