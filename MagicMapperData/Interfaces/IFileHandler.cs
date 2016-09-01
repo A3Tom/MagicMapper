@@ -2,6 +2,6 @@
 {
     public interface IFileHandler
     {
-        void ScopeAllFiles();
+        void GenerateAnalysisFile(string filePath);
     }
 }

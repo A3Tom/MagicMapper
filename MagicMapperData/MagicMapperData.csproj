@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,20 +56,23 @@
     <Compile Include="Classes\App.cs" />
     <Compile Include="Classes\FileHandler.cs" />
     <Compile Include="Classes\FileLocator.cs" />
-    <Compile Include="Classes\FileParser.cs" />
     <Compile Include="Classes\FileReader.cs" />
     <Compile Include="Classes\FileSaver.cs" />
     <Compile Include="Classes\Log.cs" />
+    <Compile Include="Classes\StringCleanser.cs" />
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Interfaces\IApp.cs" />
     <Compile Include="Interfaces\IFileHandler.cs" />
     <Compile Include="Interfaces\IFileLocator.cs" />
-    <Compile Include="Interfaces\IFileParser.cs" />
     <Compile Include="Interfaces\IFileReader.cs" />
     <Compile Include="Interfaces\IFileSaver.cs" />
     <Compile Include="Interfaces\ILog.cs" />
+    <Compile Include="Interfaces\IStringCleanser.cs" />
+    <Compile Include="Models\ClassDetails.cs" />
     <Compile Include="Models\FileDetail.cs" />
     <Compile Include="MagicMapper.cs" />
+    <Compile Include="Models\RegionDetails.cs" />
+    <Compile Include="Models\TypeDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

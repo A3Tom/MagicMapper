@@ -4,6 +4,7 @@
     {
         public string FilePath;
         public string FileName;
-        public string FileType;
+
+        public TypeDetails TypeInfo;
     }
 }

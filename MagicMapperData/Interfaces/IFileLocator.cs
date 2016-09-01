@@ -5,6 +5,6 @@
 
     public interface IFileLocator
     {
-        List<FileDetail> LocateAllFiles(string filePath);
+        List<FileDetail> LocateAllFiles(string filePath, string[] fileTypes);
     }
 }

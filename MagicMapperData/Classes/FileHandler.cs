@@ -4,38 +4,49 @@
     using Models;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
 
     class FileHandler : IFileHandler
     {
         private readonly IFileLocator fileLocator;
         private readonly IFileReader fileReader;
-        private readonly IFileParser fileParser;
         private readonly IFileSaver fileSaver;
 
-        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileParser fileParser, IFileSaver fileSaver)
+        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileSaver fileSaver)
         {
             this.fileLocator = fileLocator;
             this.fileReader = fileReader;
-            this.fileParser = fileParser;
             this.fileSaver = fileSaver;
         }
 
-        public void ScopeAllFiles()
+        public void GenerateAnalysisFile(string filePath)
         {
-            int modelCount = 0, programCount = 0;
-            List<FileDetail> fileList = fileLocator.LocateAllFiles(@".\Tests\");
+            string[] fileTypes = { "Models", "Types", "Views", "Properties", "Theme", "obj", "Printing" };
+            List<FileDetail> fileList = fileLocator.LocateAllFiles(filePath, fileTypes);
 
-            foreach(FileDetail file in fileList)
+            Console.WriteLine(string.Format("{0}Scoping files located in {2}{0}Total .cs files found: {1}{0}Below is a breakdown of each file type.{0}",
+                                Environment.NewLine,
+                                fileList.Count,
+                                filePath));
+
+            ReturnBreakdown_ToConsole(fileList, fileTypes);
+
+            fileReader.ReadProgramFiles(fileList, fileTypes);
+
+        }
+        
+        private void ReturnBreakdown_ToConsole(List<FileDetail> fileList, string[] fileTypes)
+        {
+            Dictionary<string, int> fileTypeBreakdown = new Dictionary<string, int>();
+            var groups = fileList.GroupBy(i => i.TypeInfo.Type);
+
+            foreach (var group in groups)
             {
-                Console.WriteLine("File found : " + file.FileName);
-                if (file.FileType == "Model")
-                    modelCount++;
-                else
-                    programCount++;
+                fileTypeBreakdown.Add(group.Key, group.Count());
+                Console.WriteLine("{1} {0}s", group.Key, group.Count());
             }
-
-            Console.WriteLine(string.Format("\nTotal Classes found: {0}\nFound {1} Classes\nFound {2} Models\n", fileList.Count, programCount, modelCount));
+            Console.WriteLine();
         }
     }
 }

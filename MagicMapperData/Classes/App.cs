@@ -16,9 +16,11 @@
 
         public void Run()
         {
+            string filePath = @".\Tests\";
+
             try
             {
-                fileHandler.ScopeAllFiles();
+                fileHandler.GenerateAnalysisFile(filePath);
             }
             catch (Exception ex)
             {

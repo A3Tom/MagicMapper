@@ -19,9 +19,9 @@
             Bind<IApp>().To<App>();
             Bind<IFileHandler>().To<FileHandler>();
             Bind<IFileLocator>().To<FileLocator>();
-            Bind<IFileParser>().To<FileParser>();
             Bind<IFileReader>().To<FileReader>();
             Bind<IFileSaver>().To<FileSaver>();
+            Bind<IStringCleanser>().To<StringCleanser>();
         }   
     }
 }
