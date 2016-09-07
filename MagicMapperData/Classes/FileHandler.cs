@@ -11,13 +11,11 @@
     {
         private readonly IFileLocator fileLocator;
         private readonly IFileReader fileReader;
-        private readonly IFileSaver fileSaver;
 
-        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileSaver fileSaver)
+        public FileHandler(IFileLocator fileLocator, IFileReader fileReader)
         {
             this.fileLocator = fileLocator;
             this.fileReader = fileReader;
-            this.fileSaver = fileSaver;
         }
 
         public void GenerateAnalysisFile(string filePath)
