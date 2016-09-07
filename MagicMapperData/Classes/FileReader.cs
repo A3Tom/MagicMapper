@@ -47,6 +47,11 @@
                                 file.Namespace = stringCleanser.Return_NamespaceName_ToString(line);
                             }
 
+                            if(line.Contains(" _parent;"))
+                            {
+                                newClass.ParentClass = stringCleanser.Return_ParentClass_ToString(line);
+                            }
+
                             if (line.Contains(" class "))
                             {
                                 newClass.ColumnsUsed = columnsUsed;
@@ -87,6 +92,7 @@
                     reader.Close();
                     reader.Dispose();
                     fileSaver.WriteFiles_ToTextFile(file);
+                    fileSaver.WriteFiles_ToJSON(file);
                 }
             }
         }

@@ -6,6 +6,7 @@
         string Return_ModelName_ToString(string line);
         string Return_RegionName_ToString(string line);
         string Return_ProgramName_ToString(string line);
+        string Return_ParentClass_ToString(string line);
         string Return_NamespaceName_ToString(string line);
         string[] Return_AddedColumn_ToArray(string line);
     }

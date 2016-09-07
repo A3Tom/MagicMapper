@@ -2,6 +2,7 @@
 {
     using Interfaces;
     using Models;
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -90,6 +91,18 @@
                     logger.Error(ex.StackTrace);
                 }
             }
+        }
+
+        public void WriteFiles_ToJSON(FileDetail file)
+        {
+            string outputDirectory = @"./Tests/Output/" + file.Namespace + "/";
+            string outputName = file.FileName.Replace(".cs", "") + ".Json";
+
+            if (!Directory.Exists(outputDirectory))
+                Directory.CreateDirectory(outputDirectory);
+
+            string json = JsonConvert.SerializeObject(file, Newtonsoft.Json.Formatting.Indented);
+            System.IO.File.WriteAllText(outputDirectory + outputName, json);
         }
     }
 }

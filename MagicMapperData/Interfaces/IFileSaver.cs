@@ -4,7 +4,7 @@
 
     public interface IFileSaver
     {
-        public void WriteFiles_ToTextFile(FileDetail file);
-        public void WriteFiles_ToJSON(FileDetail file);
+        void WriteFiles_ToTextFile(FileDetail file);
+        void WriteFiles_ToJSON(FileDetail file);
     }
 }

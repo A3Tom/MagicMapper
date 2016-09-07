@@ -58,6 +58,13 @@
             return line;
         }
 
+        public string Return_ParentClass_ToString(string line)
+        {
+            line = line.Replace(" _parent;", "");
+            line = line.TrimStart(' ');
+            return line;
+        }
+
         public string[] Return_AddedColumn_ToArray(string line)
         {
             string[] result = new string[2];
