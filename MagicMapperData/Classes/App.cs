@@ -16,7 +16,7 @@
 
         public void Run()
         {
-            string filePath = @".\Tests\";
+            string filePath = @"..\Build\Tests\";
 
             try
             {

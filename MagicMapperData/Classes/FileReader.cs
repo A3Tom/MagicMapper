@@ -5,6 +5,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     public class FileReader : IFileReader
     {
@@ -22,7 +23,6 @@
             ClassDetails newClass = new ClassDetails();
             RegionDetails newRegion = new RegionDetails();
             List<ClassDetails> newClasses = new List<ClassDetails>();
-            List<RegionDetails> newRegions = new List<RegionDetails>();
             List<string> modelsUsed = new List<string>();
             List<string[]> columnsUsed = new List<string[]>();
             bool isModelRegion = false;
@@ -30,74 +30,77 @@
             string formattedLine;
             string[] formattedColumn;
 
-
             foreach (FileDetail file in fileList)
             {
-                //StreamReader reader = new StreamReader(@"F:\dev\Git\MagicMapper\Build\Tests\bc\MandCo.BranchAccounting.Reports\BranchStatementsHTMBc213.cs");
-                StreamReader reader = new StreamReader(file.FilePath);
+                if (file.TypeInfo.Type == "Program")
                 {
-                    while ((line = reader.ReadLine()) != null)
+                    newClasses = new List<ClassDetails>();
+
+                    StreamReader reader = new StreamReader(file.FilePath);
                     {
-                        #region Class Check
-                        if (line.Contains(" class "))
+                        while ((line = reader.ReadLine()) != null)
                         {
-                            if(newClass != null)
+                            if(line.Contains("namespace "))
                             {
-                                newClass.RegionInfo = newRegions;
-                                newClasses.Add(newClass);
+                                file.Namespace = stringCleanser.Return_NamespaceName_ToString(line);
                             }
-                            newClass = new ClassDetails();
-                            newClass.Name = stringCleanser.Return_ClassName_ToString(line);
-                            newClass.ProgramName = file.FileName.Substring(0, file.FileName.Length - 3);
-                            newRegions.Clear();
-                        }
-                        #endregion
 
-                        #region Region Check
+                            if (line.Contains(" class "))
+                            {
+                                newClass.ColumnsUsed = columnsUsed;
+                                newClass.ModelsUsed = modelsUsed;
 
-                        if (line.Contains("#region"))
-                        {
-                            newRegion = new RegionDetails();
-                            newRegions.Clear();
-                            modelsUsed.Clear();
-                            columnsUsed.Clear();
-                            newRegion.RegionName = stringCleanser.Return_RegionName_ToString(line);
-                            isModelRegion = (line.Contains("Models") ? true : false);
-                        }
+                                if (Switch_WriteToNewClass_ToBool(newClass.ModelsUsed.Count, newClass.ColumnsUsed.Count))
+                                    newClasses.Add(newClass);
 
-                        if (line.Contains("Columns.Add"))
-                        {
-                            formattedColumn = stringCleanser.Return_AddedColumn_ToArray(line);
-                            if (!columnsUsed.Contains(formattedColumn))
-                                columnsUsed.Add(formattedColumn);
-                        }
+                                newClass = new ClassDetails();
+                                newClass.Name = stringCleanser.Return_ClassName_ToString(line);
+                                newClass.ProgramName = file.FileName.Replace(".cs", "");
 
-                        if (isModelRegion && line.Length > 2 && !line.Contains("///") && !line.Contains("#"))
-                        {
-                            formattedLine = stringCleanser.Return_ModelName_ToString(line);
-                            if (!modelsUsed.Contains(formattedLine))
-                                modelsUsed.Add(formattedLine);
-                        }
+                                modelsUsed = new List<string>();
+                                columnsUsed = new List<string[]>();
+                            }
 
-                        if (line.Contains("#endregion"))
-                        {
-                            newRegion.ModelsUsed = modelsUsed;
-                            newRegion.ColumnsUsed = columnsUsed;
-                            if(modelsUsed.Count > 0 || columnsUsed.Count > 0)
-                                newRegions.Add(newRegion);
+                            if (line.Contains("#region"))
+                                isModelRegion = (line.Contains("Models") ? true : false);
+
+                            //Column aggregator
+                            if (line.Contains("Columns.Add"))
+                            {
+                                formattedColumn = stringCleanser.Return_AddedColumn_ToArray(line);
+                                if (!columnsUsed.Contains(formattedColumn))
+                                    columnsUsed.Add(formattedColumn);
+                            }
+
+                            //Model aggregator
+                            if (Switch_WriteToModels_ToBool(isModelRegion, line))
+                            {
+                                formattedLine = stringCleanser.Return_ModelName_ToString(line);
+                                if (!modelsUsed.Contains(formattedLine))
+                                    modelsUsed.Add(formattedLine);
+                            }
                         }
-                        #endregion
+                        file.TypeInfo.ClassInfo = newClasses;
                     }
-                    file.TypeInfo.ClassInfo = newClasses;
+                    reader.Close();
+                    reader.Dispose();
+                    WriteFiles_ToTextFile(file);
                 }
-                WriteFiles_ToTextFile(file);
             }
         }
 
         public void WriteFiles_ToTextFile(FileDetail file)
         {
+            List<string> totalModelsUsed = new List<string>();
+            List<string[]> totalColumnsUsed = new List<string[]>();
 
-            StreamWriter writer = new StreamWriter(@"./Tests/Output/" + file.FileName.Replace(".cs", "") + ".txt");
+            string outputDirectory = @"./Tests/Output/" + file.Namespace + "/";
+            string outputName = file.FileName.Replace(".cs", "") + ".txt";
+
+            if (!Directory.Exists(outputDirectory))
+                Directory.CreateDirectory(outputDirectory);
+
+            StreamWriter writer = new StreamWriter(outputDirectory + outputName);
             {
                 try
                 {
@@ -108,23 +111,48 @@
                                                         classDetail.ProgramName,
                                                         Environment.NewLine));
 
-                        foreach (RegionDetails regionDetail in classDetail.RegionInfo)
+                        if (classDetail.ModelsUsed.Count > 0)
                         {
                             writer.WriteLine("Models used:");
-                            foreach (string model in regionDetail.ModelsUsed)
+                            foreach (string model in classDetail.ModelsUsed)
                             {
                                 writer.WriteLine(model);
+                                if(!totalModelsUsed.Contains(model))
+                                    totalModelsUsed.Add(model);
                             }
+                        }
 
+                        if (classDetail.ColumnsUsed.Count > 0)
+                        {
                             writer.WriteLine("\n\nColumns used:");
-                            foreach (string[] column in regionDetail.ColumnsUsed)
+                            foreach (string[] column in classDetail.ColumnsUsed)
                             {
                                 writer.WriteLine(string.Format("{0}.{1}",
                                                     column[0],
                                                     column[1]));
+                                if (!totalColumnsUsed.Contains(column))
+                                    totalColumnsUsed.Add(column);
                             }
                         }
                     }
+
+                    totalModelsUsed = totalModelsUsed.OrderBy(o => o).ToList();
+                    totalColumnsUsed = totalColumnsUsed.OrderBy(o => o[1]).OrderBy(e => e[0]).ToList();
+                    totalColumnsUsed = totalColumnsUsed.Distinct().ToList();
+
+                    writer.WriteLine(string.Format("{0} ** Summary ** {0}", Environment.NewLine));
+                    writer.WriteLine(string.Format("{0} * Unique Models Used * {0}", Environment.NewLine));
+                    foreach(string model in totalModelsUsed)
+                        writer.WriteLine(model);
+
+                    writer.WriteLine(string.Format("{0}{0} * Unique Columns Used * {0}", Environment.NewLine));
+                    foreach (string[] column in totalColumnsUsed)
+                    {
+                        writer.WriteLine(string.Format("{0}.{1}",
+                                                        column[0],
+                                                        column[1]));
+                    }
+
                     writer.Close();
                     writer.Dispose();
                 }
@@ -135,6 +163,45 @@
                 }
             }
         }
+
+        private bool Switch_WriteToModels_ToBool(bool modelRegion, string line)
+        {
+            bool result = false;
+
+            if (modelRegion)
+            {
+                if (line.Length > 2)
+                {
+                    if (!line.Contains("///"))
+                    {
+                        if (!line.Contains("#"))
+                        {
+                            result = true;
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private bool Switch_WriteToNewClass_ToBool(int modelCount, int columnCount)
+        {
+            bool result = false;
+
+            if (modelCount == 0 && columnCount > 0)
+                result = true;
+
+            if (modelCount > 0 && columnCount == 0)
+                result = true;
+
+            if (modelCount > 0 && columnCount > 0)
+                result = true;
+
+            return result;
+        }
+
+
     }
 }
 

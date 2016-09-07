@@ -13,37 +13,39 @@
             List<FileDetail> result = new List<FileDetail>();
             string fileName;
             string[] files = Directory.GetFiles(filePath, "*.cs", SearchOption.AllDirectories);
-            
-            foreach(string file in files)
+
+            foreach (string file in files)
             {
-                FileDetail fileDetail = new FileDetail();
-                TypeDetails typeDetail = new TypeDetails();
-                fileDetail.FilePath = file;
-                int startIndex = file.LastIndexOf('\\') + 1;
-                fileName = file.Substring(startIndex, file.Length - startIndex);
-                fileDetail.FileName = fileName;
-
-                foreach (string fileType in fileTypes)
+                if (!file.Contains("ENV"))
                 {
-                    if(fileDetail.FilePath.Contains(fileType))
+                    FileDetail fileDetail = new FileDetail();
+                    TypeDetails typeDetail = new TypeDetails();
+                    fileDetail.FilePath = file;
+                    int startIndex = file.LastIndexOf('\\') + 1;
+                    fileName = file.Substring(startIndex, file.Length - startIndex);
+                    fileDetail.FileName = fileName;
+
+                    foreach (string fileType in fileTypes)
                     {
-                        if (fileType.EndsWith("s"))
-                            typeDetail.Type = fileType.Substring(0, fileType.Length - 1);
-                        else
-                            typeDetail.Type = fileType;
+                        if (fileDetail.FilePath.Contains(fileType))
+                        {
+                            if (fileType.EndsWith("s"))
+                                typeDetail.Type = fileType.Substring(0, fileType.Length - 1);
+                            else
+                                typeDetail.Type = fileType;
 
-                        break;
+                            break;
+                        }
                     }
+
+                    if (typeDetail.Type == null)
+                        typeDetail.Type = "Program";
+
+                    fileDetail.TypeInfo = typeDetail;
+
+                    result.Add(fileDetail);
                 }
-
-                if (typeDetail.Type == null)
-                    typeDetail.Type = "Program";
-
-                fileDetail.TypeInfo = typeDetail;
-
-                result.Add(fileDetail);
             }
-
             return result;
         }
     }

@@ -8,6 +8,7 @@
         public string ProgramName;
         public string ParentClass;
 
-        public List<RegionDetails> RegionInfo;
+        public List<string> ModelsUsed;
+        public List<string[]> ColumnsUsed;
     }
 }

@@ -5,7 +5,6 @@
     public class RegionDetails
     {
         public string RegionName;
-        public List<string> ModelsUsed;
-        public List<string[]> ColumnsUsed;
+
     }
 }
