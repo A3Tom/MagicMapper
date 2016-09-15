@@ -75,7 +75,7 @@
     <Compile Include="Models\ClassDetails.cs" />
     <Compile Include="Models\FileDetail.cs" />
     <Compile Include="MagicMapper.cs" />
-    <Compile Include="Models\RegionDetails.cs" />
+    <Compile Include="Models\ClassModel.cs" />
     <Compile Include="Models\TypeDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

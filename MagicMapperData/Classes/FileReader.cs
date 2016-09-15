@@ -20,13 +20,16 @@
             this.stringCleanser = stringCleanser;
         }
 
-        public void ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes)
+        public List<FileDetail> ReadProgramFiles_ToList(List<FileDetail> fileList, string[] fileTypes)
         {
+            List<FileDetail> result = new List<FileDetail>();
+
             ClassDetails newClass = new ClassDetails();
-            RegionDetails newRegion = new RegionDetails();
             List<ClassDetails> newClasses = new List<ClassDetails>();
-            List<string> modelsUsed = new List<string>();
+            ClassModel newClassModel = new ClassModel();
+            List<ClassModel> newClassModelsUsed = new List<ClassModel>();
             List<string[]> columnsUsed = new List<string[]>();
+            List<string> modelsUsed = new List<string>();
             bool isModelRegion = false;
             string line;
             string formattedLine;
@@ -54,22 +57,19 @@
 
                             if (line.Contains(" class "))
                             {
-                                newClass.ColumnsUsed = columnsUsed;
-                                newClass.ModelsUsed = modelsUsed;
 
-                                if (Switch_WriteToNewClass_ToBool(newClass.ModelsUsed.Count, newClass.ColumnsUsed.Count))
+
+                                newClass.Model = newClassModelsUsed;
+
+                                if (newClass.Model.Count > 0)
                                     newClasses.Add(newClass);
 
                                 newClass = new ClassDetails();
                                 newClass.Name = stringCleanser.Return_ClassName_ToString(line);
-                                newClass.ProgramName = file.FileName.Replace(".cs", "");
 
-                                modelsUsed = new List<string>();
+                                newClassModelsUsed = new List<ClassModel>();
                                 columnsUsed = new List<string[]>();
                             }
-
-                            if (line.Contains("#region"))
-                                isModelRegion = (line.Contains("Models") ? true : false);
 
                             //Column aggregator
                             if (line.Contains("Columns.Add"))
@@ -80,7 +80,7 @@
                             }
 
                             //Model aggregator
-                            if (Switch_WriteToModels_ToBool(isModelRegion, line))
+                            if (line.Contains("= new Models."))
                             {
                                 formattedLine = stringCleanser.Return_ModelName_ToString(line);
                                 if (!modelsUsed.Contains(formattedLine))
@@ -91,10 +91,13 @@
                     }
                     reader.Close();
                     reader.Dispose();
+                    result.Add(file);
                     fileSaver.WriteFiles_ToTextFile(file);
                     fileSaver.WriteFiles_ToJSON(file);
                 }
             }
+
+            return result;
         }
 
         
@@ -120,22 +123,26 @@
             return result;
         }
 
-        private bool Switch_WriteToNewClass_ToBool(int modelCount, int columnCount)
+        private List<ClassModel> Transcribe_ColumnData_ToClassModelsList(List<ClassModel> existingClassModels, List<string[]> columnsUsed)
         {
-            bool result = false;
+            List<string> uniqueModelsFromColumns = new List<string>();
+            List<ClassModel> result = existingClassModels;
+            ClassModel newClassModel = new ClassModel();
 
-            if (modelCount == 0 && columnCount > 0)
-                result = true;
+            foreach (string[] column in columnsUsed)
+            {
+                if (!uniqueModelsFromColumns.Contains(column[0]))
+                    uniqueModelsFromColumns.Add(column[0]);
+            }
 
-            if (modelCount > 0 && columnCount == 0)
-                result = true;
 
-            if (modelCount > 0 && columnCount > 0)
-                result = true;
+            foreach (ClassModel ecm in existingClassModels)
+            {
+
+            }
 
             return result;
         }
-
 
     }
 }

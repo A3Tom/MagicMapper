@@ -5,10 +5,8 @@
     public class ClassDetails
     {
         public string Name;
-        public string ProgramName;
         public string ParentClass;
 
-        public List<string> ModelsUsed;
-        public List<string[]> ColumnsUsed;
+        public List<ClassModel> Model;
     }
 }

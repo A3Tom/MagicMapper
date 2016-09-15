@@ -29,7 +29,7 @@
                                 filePath));
 
             ReturnBreakdown_ToConsole(fileList, fileTypes);
-            fileReader.ReadProgramFiles(fileList, fileTypes);
+            fileReader.ReadProgramFiles_ToList(fileList, fileTypes);
         }        
 
         private void ReturnBreakdown_ToConsole(List<FileDetail> fileList, string[] fileTypes)

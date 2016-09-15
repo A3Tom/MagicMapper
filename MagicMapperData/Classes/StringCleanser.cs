@@ -24,6 +24,7 @@
                 line = line.Replace(mod, "");
 
             line = line.TrimStart(' ');
+            line = line.TrimEnd(' ');
 
             return line;
         }
