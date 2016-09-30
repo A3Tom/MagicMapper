@@ -7,5 +7,6 @@
         public string Type;
 
         public List<ClassDetails> ClassInfo;
+        public List<DataModelDetails> DataModelInfo;
     }
 }

@@ -24,6 +24,7 @@
                 line = line.Replace(mod, "");
 
             line = line.TrimStart(' ');
+            line = line.TrimEnd(' ');
 
             return line;
         }
@@ -78,7 +79,7 @@
                 }
                 else
                 {
-                    result[0] = "Variable";
+                    result[0] = "Variables";
                     result[1] = line;
                 }
             }
