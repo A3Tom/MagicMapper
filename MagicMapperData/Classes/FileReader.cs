@@ -25,6 +25,7 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         public List<FileDetail> ReadProgramFiles_ToList(List<FileDetail> fileList, string[] fileTypes)
         {
             List<FileDetail> result = new List<FileDetail>();
@@ -41,6 +42,11 @@
         {
             List<FileDetail> result = new List<FileDetail>();
 >>>>>>> overhaul
+=======
+        public List<FileDetail> ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes)
+        {
+            List<FileDetail> result = new List<FileDetail>();
+>>>>>>> OverhaulConflictMerge
             string line;
             List<string> lines = new List<string>();
 
@@ -69,6 +75,7 @@
                             {
                                 file.Namespace = stringCleanser.Return_NamespaceName_ToString(line);
                             }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
                             if(line.Contains(" _parent;"))
@@ -122,6 +129,13 @@
                         file.TypeInfo.ClassInfo = pablo.Return_FileClassInfo_ToList(lines.ToArray());
                         break;
 >>>>>>> overhaul
+=======
+                            if (line.Replace(" ", "") != "")
+                                lines.Add(line);
+                        }
+                        file.TypeInfo.ClassInfo = pablo.Return_FileClassInfo_ToList(lines.ToArray());
+                        break;
+>>>>>>> OverhaulConflictMerge
                 }
                 reader.Close();
                 reader.Dispose();
@@ -132,6 +146,7 @@
             return result;
         }
 
+<<<<<<< HEAD
         
 
         private bool Switch_WriteToModels_ToBool(bool modelRegion, string line)
@@ -177,6 +192,8 @@
 
             return result;
         }
+=======
+>>>>>>> OverhaulConflictMerge
 
     }
 }

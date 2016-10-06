@@ -32,9 +32,12 @@
 
             ReturnBreakdown_ToConsole(fileList, fileTypes);
 <<<<<<< HEAD
+<<<<<<< HEAD
             fileReader.ReadProgramFiles_ToList(fileList, fileTypes);
         }        
 =======
+=======
+>>>>>>> OverhaulConflictMerge
 
 
             fileList = fileReader.ReadProgramFiles(fileList, fileTypes);
@@ -43,7 +46,10 @@
 
             fileWriter.WriteFiles_ToJSON(fileList);
         }
+<<<<<<< HEAD
 >>>>>>> overhaul
+=======
+>>>>>>> OverhaulConflictMerge
 
         private void ReturnBreakdown_ToConsole(List<FileDetail> fileList, string[] fileTypes)
         {
