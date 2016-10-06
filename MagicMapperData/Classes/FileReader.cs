@@ -10,12 +10,12 @@
     public class FileReader : IFileReader
     {
         private readonly ILog logger;
-        private readonly IFileSaver fileSaver;
+        private readonly IFileWriter fileSaver;
         private readonly IPabloEscobar pablo;
         private readonly IValidationRules validateRule;
         private readonly IStringCleanser stringCleanser;
 
-        public FileReader(ILog logger, IFileSaver fileSaver, IValidationRules validateRule, IStringCleanser stringCleanser, IPabloEscobar pablo)
+        public FileReader(ILog logger, IFileWriter fileSaver, IValidationRules validateRule, IStringCleanser stringCleanser, IPabloEscobar pablo)
         {
             this.logger = logger;
             this.fileSaver = fileSaver;
@@ -24,8 +24,9 @@
             this.pablo = pablo;
         }
 
-        public void ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes)
+        public List<FileDetail> ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes)
         {
+            List<FileDetail> result = new List<FileDetail>();
             string line;
             List<string> lines = new List<string>();
 
@@ -44,7 +45,7 @@
                                 lines.Add(line);
                         }
 
-                        file.TypeInfo.DataModelInfo = pablo.Return_FileDataModelInfo_ToList(lines.ToArray());
+                        file.TypeInfo.DataModelInfo = pablo.Return_FileDataModelInfo_ToModel(lines.ToArray());
                         break;
                     case "Program":
                         while ((line = reader.ReadLine()) != null)
@@ -56,15 +57,16 @@
                             }
                             if (line.Replace(" ", "") != "")
                                 lines.Add(line);
-
-                            file.TypeInfo.ClassInfo = pablo.Return_FileClassInfo_ToList(lines.ToArray());
                         }
+                        file.TypeInfo.ClassInfo = pablo.Return_FileClassInfo_ToList(lines.ToArray());
                         break;
                 }
                 reader.Close();
                 reader.Dispose();
-                fileSaver.WriteFiles_ToJSON(file);
+                result.Add(file);
             }
+
+            return result;
         }
 
 

@@ -5,7 +5,7 @@
 
     public interface IPabloEscobar
     {
-        public List<ClassDetails> Return_FileClassInfo_ToList(string[] lines);
-        public List<DataModelDetails> Return_FileDataModelInfo_ToList(string[] lines);
+        List<ClassDetails> Return_FileClassInfo_ToList(string[] lines);
+        DataModelDetails Return_FileDataModelInfo_ToModel(string[] lines);
     }
 }

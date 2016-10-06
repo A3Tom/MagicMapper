@@ -5,6 +5,6 @@
 
     public interface IFileReader
     {
-        void ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes);
+        List<FileDetail> ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes);
     }
 }

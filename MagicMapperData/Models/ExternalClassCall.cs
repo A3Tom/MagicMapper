@@ -3,6 +3,6 @@
     public class ExternalClassCall
     {
         public string ClassName;
-        public string[] ParametersPassed;
+        public string[] RunArguments;
     }
 }

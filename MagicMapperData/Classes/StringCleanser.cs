@@ -1,6 +1,7 @@
 ﻿namespace MagicMapperData.Classes
 {
     using Interfaces;
+    using System.Collections.Generic;
 
     public class StringCleanser : IStringCleanser
     {
@@ -101,6 +102,73 @@
             line = line.TrimStart(' ');
 
             return line;
+        }
+
+        public string Return_ExternalCallName_ToString(string line)
+        {
+            string result = line;
+
+            result = line.Substring(line.IndexOf('<') + 1, (line.IndexOf('>') - (line.IndexOf('<') + 1)));
+
+            return result;
+        }
+
+        public string[] Return_ExternalCallParams_ToArray(string line)
+        {
+            string rawParams = line;
+            string criteria = ").Run(";
+            int runStart = line.IndexOf(criteria);
+
+            rawParams = line.Substring((runStart + criteria.Length), (line.IndexOf(");")) - (runStart + criteria.Length));
+
+            var result = rawParams.Split(',');
+
+            if (rawParams.Contains(","))
+                result = rawParams.Split(',');
+            else
+                result = null;
+
+            return result;
+        }
+
+        public string Return_AddAdditionalParam_ToString(string line)
+        {
+            string result;
+
+            result = line.Trim();
+
+            return result;
+        }
+
+        public string[] Return_DataModelDetails_ToArray(string line)
+        {
+            string[] result = new string[3];
+            string[] modifiersToReplace = { " ", "\"", "(", ")" };
+
+            line = line.Substring(line.IndexOf('\"') + 1, (line.LastIndexOf(')') - line.IndexOf('\"')));
+
+            foreach (string mod in modifiersToReplace)
+                line = line.Replace(mod, "");
+
+            result = line.Split(',');
+
+            if (result[0].Contains("."))
+                result[0] = Return_CleansedTableColumnConcat_ToString(result[0]);
+
+            if (result[2] != null)
+                result[2] = Return_CleansedTableColumnConcat_ToString(result[2]);
+
+            return result;
+        }
+
+        private string Return_CleansedTableColumnConcat_ToString(string line)
+        {
+            string result;
+            int startIndex = line.IndexOf('.') + 1;
+
+            result = line.Substring(startIndex, line.Length - startIndex);
+
+            return result;
         }
     }
 }

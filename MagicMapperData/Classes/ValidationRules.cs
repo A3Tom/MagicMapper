@@ -50,6 +50,24 @@
 
             return result;
         }
+        public bool Validate_NewExternalCallHook_ToBool(string line)
+        {
+            bool result = false;
+
+            if (line.Contains("().Run("))
+                result = true;
+
+            return result;
+        }
+        public bool Validate_MultiParamatersReel_ToBool(string line)
+        {
+            bool result = false;
+
+            if (!line.Contains(");"))
+                result = true;
+
+            return result;
+        }
         public bool Validate_AddNewClass_ToBool(ClassDetails newClass)
         {
             bool result = false;
@@ -59,7 +77,15 @@
 
             return result;
         }
+        public bool Validate_ObtainDataModelInfoHook_ToBool(string line)
+        {
+            bool result = false;
 
+            if (line.Contains(":base("))
+                result = true;
+
+            return result;
+        }
 
     }
 }
