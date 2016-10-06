@@ -7,6 +7,11 @@
         public string Name;
         public string ParentClass;
 
+<<<<<<< HEAD
         public List<ClassModel> Model;
+=======
+        public List<ModelDetails> Models;
+        public List<ExternalClassCall> ExternalCalls;
+>>>>>>> overhaul
     }
 }

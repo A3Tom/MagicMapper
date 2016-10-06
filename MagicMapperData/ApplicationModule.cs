@@ -20,8 +20,11 @@
             Bind<IFileHandler>().To<FileHandler>();
             Bind<IFileLocator>().To<FileLocator>();
             Bind<IFileReader>().To<FileReader>();
-            Bind<IFileSaver>().To<FileSaver>();
+            Bind<IFileWriter>().To<FileWriter>();
             Bind<IStringCleanser>().To<StringCleanser>();
-        }   
+            Bind<IModelColumnAggregator>().To<ModelColumnAggregator>();
+            Bind<IValidationRules>().To<ValidationRules>();
+            Bind<IPabloEscobar>().To<PabloEscobar>();
+        }
     }
 }

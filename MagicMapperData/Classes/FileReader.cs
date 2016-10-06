@@ -10,16 +10,21 @@
     public class FileReader : IFileReader
     {
         private readonly ILog logger;
-        private readonly IFileSaver fileSaver;
+        private readonly IFileWriter fileSaver;
+        private readonly IPabloEscobar pablo;
+        private readonly IValidationRules validateRule;
         private readonly IStringCleanser stringCleanser;
 
-        public FileReader(ILog logger, IFileSaver fileSaver, IStringCleanser stringCleanser)
+        public FileReader(ILog logger, IFileWriter fileSaver, IValidationRules validateRule, IStringCleanser stringCleanser, IPabloEscobar pablo)
         {
             this.logger = logger;
             this.fileSaver = fileSaver;
+            this.validateRule = validateRule;
             this.stringCleanser = stringCleanser;
+            this.pablo = pablo;
         }
 
+<<<<<<< HEAD
         public List<FileDetail> ReadProgramFiles_ToList(List<FileDetail> fileList, string[] fileTypes)
         {
             List<FileDetail> result = new List<FileDetail>();
@@ -31,24 +36,40 @@
             List<string[]> columnsUsed = new List<string[]>();
             List<string> modelsUsed = new List<string>();
             bool isModelRegion = false;
+=======
+        public List<FileDetail> ReadProgramFiles(List<FileDetail> fileList, string[] fileTypes)
+        {
+            List<FileDetail> result = new List<FileDetail>();
+>>>>>>> overhaul
             string line;
-            string formattedLine;
-            string[] formattedColumn;
+            List<string> lines = new List<string>();
+
+            fileList = fileList.OrderBy(x => x.TypeInfo.Type).ToList();
 
             foreach (FileDetail file in fileList)
             {
-                if (file.TypeInfo.Type == "Program")
+                StreamReader reader = new StreamReader(file.FilePath);
+                switch (file.TypeInfo.Type)
                 {
-                    newClasses = new List<ClassDetails>();
-
-                    StreamReader reader = new StreamReader(file.FilePath);
-                    {
+                    case "Model":
                         while ((line = reader.ReadLine()) != null)
                         {
-                            if(line.Contains("namespace "))
+                            file.Namespace = "Models";
+                            if (line.Replace(" ", "") != "")
+                                lines.Add(line);
+                        }
+
+                        file.TypeInfo.DataModelInfo = pablo.Return_FileDataModelInfo_ToModel(lines.ToArray());
+                        break;
+                    case "Program":
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            //Declare Namespace
+                            if (validateRule.Validate_ObtainNamespaceHook_ToBool(line))
                             {
                                 file.Namespace = stringCleanser.Return_NamespaceName_ToString(line);
                             }
+<<<<<<< HEAD
 
                             if(line.Contains(" _parent;"))
                             {
@@ -94,8 +115,19 @@
                     result.Add(file);
                     fileSaver.WriteFiles_ToTextFile(file);
                     fileSaver.WriteFiles_ToJSON(file);
+=======
+                            if (line.Replace(" ", "") != "")
+                                lines.Add(line);
+                        }
+                        file.TypeInfo.ClassInfo = pablo.Return_FileClassInfo_ToList(lines.ToArray());
+                        break;
+>>>>>>> overhaul
                 }
+                reader.Close();
+                reader.Dispose();
+                result.Add(file);
             }
+<<<<<<< HEAD
 
             return result;
         }
@@ -140,6 +172,8 @@
             {
 
             }
+=======
+>>>>>>> overhaul
 
             return result;
         }
