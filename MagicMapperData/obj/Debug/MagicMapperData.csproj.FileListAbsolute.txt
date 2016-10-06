@@ -7,10 +7,10 @@ F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\Ninject.dll
 F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\NLog.dll
 F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\Ninject.xml
 F:\dev\Git\MagicMapper\MagicMapperData\bin\Debug\NLog.xml
-F:\dev\Git\MagicMapper\Build\NLog.config
+F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.csprojResolveAssemblyReference.cache
 F:\dev\Git\MagicMapper\Build\MagicMapperData.exe.config
+F:\dev\Git\MagicMapper\Build\NLog.config
 F:\dev\Git\MagicMapper\Build\MagicMapperData.exe
 F:\dev\Git\MagicMapper\Build\MagicMapperData.pdb
 F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.exe
 F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.pdb
-F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.csprojResolveAssemblyReference.cache

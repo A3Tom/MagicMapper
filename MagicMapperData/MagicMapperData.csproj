@@ -85,15 +85,8 @@
     <Compile Include="Models\ExternalClassCall.cs" />
     <Compile Include="Models\FileDetail.cs" />
     <Compile Include="MagicMapper.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Compile Include="Models\ClassModel.cs" />
-=======
     <Compile Include="Models\ModelDetails.cs" />
->>>>>>> overhaul
-=======
-    <Compile Include="Models\ModelDetails.cs" />
->>>>>>> OverhaulConflictMerge
     <Compile Include="Models\TypeDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
