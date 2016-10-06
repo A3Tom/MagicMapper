@@ -11,11 +11,13 @@
     {
         private readonly IFileLocator fileLocator;
         private readonly IFileReader fileReader;
+        private readonly IFileWriter fileWriter;
 
-        public FileHandler(IFileLocator fileLocator, IFileReader fileReader)
+        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileWriter fileWriter)
         {
             this.fileLocator = fileLocator;
             this.fileReader = fileReader;
+            this.fileWriter = fileWriter;
         }
 
         public void GenerateAnalysisFile(string filePath)
@@ -29,8 +31,14 @@
                                 filePath));
 
             ReturnBreakdown_ToConsole(fileList, fileTypes);
-            fileReader.ReadProgramFiles_ToList(fileList, fileTypes);
-        }        
+
+
+            fileList = fileReader.ReadProgramFiles(fileList, fileTypes);
+
+
+
+            fileWriter.WriteFiles_ToJSON(fileList);
+        }
 
         private void ReturnBreakdown_ToConsole(List<FileDetail> fileList, string[] fileTypes)
         {
