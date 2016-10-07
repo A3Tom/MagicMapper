@@ -8,6 +8,6 @@
         public string ParentClass;
 
         public List<ModelDetails> Models;
-        public List<ExternalClassCall> ExternalCalls;
+        public List<ExternalClassCall> ProgramCalls;
     }
 }

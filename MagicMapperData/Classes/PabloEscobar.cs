@@ -51,7 +51,7 @@
                     newClass.Models = modelColumnAggregator.Return_PopulatedModelDetails_ToList(modelsUsed, columnsUsed);
 
                     if (externalClassCalls.Count != 0)
-                        newClass.ExternalCalls = externalClassCalls;
+                        newClass.ProgramCalls = externalClassCalls;
 
                     if (validateRule.Validate_AddNewClass_ToBool(newClass))
                         newClasses.Add(newClass);
