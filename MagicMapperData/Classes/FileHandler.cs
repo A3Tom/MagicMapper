@@ -12,12 +12,14 @@
         private readonly IFileLocator fileLocator;
         private readonly IFileReader fileReader;
         private readonly IFileWriter fileWriter;
+        private readonly IProcessHandler processHandler;
 
-        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileWriter fileWriter)
+        public FileHandler(IFileLocator fileLocator, IFileReader fileReader, IFileWriter fileWriter, IProcessHandler processHandler)
         {
             this.fileLocator = fileLocator;
             this.fileReader = fileReader;
             this.fileWriter = fileWriter;
+            this.processHandler = processHandler;
         }
 
         public void GenerateAnalysisFile(string filePath)
@@ -35,7 +37,7 @@
 
             fileList = fileReader.ReadProgramFiles(fileList, fileTypes);
 
-
+            fileList = processHandler.Return_CompleteModelDetailInfo_ToList(fileList);
 
             fileWriter.WriteFiles_ToJSON(fileList);
         }

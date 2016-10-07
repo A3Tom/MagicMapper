@@ -28,12 +28,13 @@
         {
             List<FileDetail> result = new List<FileDetail>();
             string line;
-            List<string> lines = new List<string>();
+            List<string> lines;
 
             fileList = fileList.OrderBy(x => x.TypeInfo.Type).ToList();
 
             foreach (FileDetail file in fileList)
             {
+                lines = new List<string>();
                 StreamReader reader = new StreamReader(file.FilePath);
                 switch (file.TypeInfo.Type)
                 {

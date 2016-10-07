@@ -17,14 +17,15 @@
                 return log;
             });
             Bind<IApp>().To<App>();
-            Bind<IFileHandler>().To<FileHandler>();
-            Bind<IFileLocator>().To<FileLocator>();
             Bind<IFileReader>().To<FileReader>();
             Bind<IFileWriter>().To<FileWriter>();
-            Bind<IStringCleanser>().To<StringCleanser>();
-            Bind<IModelColumnAggregator>().To<ModelColumnAggregator>();
-            Bind<IValidationRules>().To<ValidationRules>();
+            Bind<IFileHandler>().To<FileHandler>();
+            Bind<IFileLocator>().To<FileLocator>();
             Bind<IPabloEscobar>().To<PabloEscobar>();
+            Bind<IProcessHandler>().To<ProcessHandler>();
+            Bind<IStringCleanser>().To<StringCleanser>();
+            Bind<IValidationRules>().To<ValidationRules>();
+            Bind<IModelColumnAggregator>().To<ModelColumnAggregator>();
         }
     }
 }
