@@ -34,7 +34,6 @@
 
             ReturnBreakdown_ToConsole(fileList, fileTypes);
 
-
             fileList = fileReader.ReadProgramFiles(fileList, fileTypes);
 
             fileList = processHandler.Return_CompleteModelDetailInfo_ToList(fileList);

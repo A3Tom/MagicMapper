@@ -10,6 +10,7 @@
         string Return_NamespaceName_ToString(string line);
         string Return_ExternalCallName_ToString(string line);
         string Return_AddAdditionalParam_ToString(string line);
+        string Return_SQLModelUsed_ToString(string line);
 
         string[] Return_AddedColumn_ToArray(string line);
         string[] Return_DataModelDetails_ToArray(string line);

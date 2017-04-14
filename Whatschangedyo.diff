@@ -1,0 +1,52 @@
+diff --git a/Build/MagicMapperData.exe b/Build/MagicMapperData.exe
+index ea26d5f..1d6dc27 100644
+Binary files a/Build/MagicMapperData.exe and b/Build/MagicMapperData.exe differ
+diff --git a/Build/MagicMapperData.pdb b/Build/MagicMapperData.pdb
+index 610fafa..9ad0979 100644
+Binary files a/Build/MagicMapperData.pdb and b/Build/MagicMapperData.pdb differ
+diff --git a/Build/MagicMapperData.vshost.exe b/Build/MagicMapperData.vshost.exe
+index 666c0af..681ab77 100644
+Binary files a/Build/MagicMapperData.vshost.exe and b/Build/MagicMapperData.vshost.exe differ
+diff --git a/MagicMapperData.v12.suo b/MagicMapperData.v12.suo
+index f8aa80e..c31e5f6 100644
+Binary files a/MagicMapperData.v12.suo and b/MagicMapperData.v12.suo differ
+diff --git a/MagicMapperData/Classes/PabloEscobar.cs b/MagicMapperData/Classes/PabloEscobar.cs
+index 034afed..9a8ea25 100644
+--- a/MagicMapperData/Classes/PabloEscobar.cs
++++ b/MagicMapperData/Classes/PabloEscobar.cs
+@@ -42,8 +42,6 @@
+ 
+             foreach (string line in lines)
+             {
+-
+-
+                 //New Class
+                 if (validateRule.Validate_NewClassHook_ToBool(line))
+                 {
+diff --git a/MagicMapperData/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache b/MagicMapperData/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+index c82b2b8..f756042 100644
+Binary files a/MagicMapperData/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache and b/MagicMapperData/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache differ
+diff --git a/MagicMapperData/obj/Debug/MagicMapperData.csproj.FileListAbsolute.txt b/MagicMapperData/obj/Debug/MagicMapperData.csproj.FileListAbsolute.txt
+index ad1136f..9de0281 100644
+--- a/MagicMapperData/obj/Debug/MagicMapperData.csproj.FileListAbsolute.txt
++++ b/MagicMapperData/obj/Debug/MagicMapperData.csproj.FileListAbsolute.txt
+@@ -14,3 +14,10 @@ F:\dev\Git\MagicMapper\Build\MagicMapperData.exe
+ F:\dev\Git\MagicMapper\Build\MagicMapperData.pdb
+ F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.exe
+ F:\dev\Git\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.pdb
++F:\dev\Git\What are thooooose\MagicMapper\Build\MagicMapperData.exe.config
++F:\dev\Git\What are thooooose\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.exe
++F:\dev\Git\What are thooooose\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.pdb
++F:\dev\Git\What are thooooose\MagicMapper\Build\NLog.config
++F:\dev\Git\What are thooooose\MagicMapper\Build\MagicMapperData.exe
++F:\dev\Git\What are thooooose\MagicMapper\Build\MagicMapperData.pdb
++F:\dev\Git\What are thooooose\MagicMapper\MagicMapperData\obj\Debug\MagicMapperData.csprojResolveAssemblyReference.cache
+diff --git a/MagicMapperData/obj/Debug/MagicMapperData.csprojResolveAssemblyReference.cache b/MagicMapperData/obj/Debug/MagicMapperData.csprojResolveAssemblyReference.cache
+index fa28df5..5fcb784 100644
+Binary files a/MagicMapperData/obj/Debug/MagicMapperData.csprojResolveAssemblyReference.cache and b/MagicMapperData/obj/Debug/MagicMapperData.csprojResolveAssemblyReference.cache differ
+diff --git a/MagicMapperData/obj/Debug/MagicMapperData.exe b/MagicMapperData/obj/Debug/MagicMapperData.exe
+index ea26d5f..1d6dc27 100644
+Binary files a/MagicMapperData/obj/Debug/MagicMapperData.exe and b/MagicMapperData/obj/Debug/MagicMapperData.exe differ
+diff --git a/MagicMapperData/obj/Debug/MagicMapperData.pdb b/MagicMapperData/obj/Debug/MagicMapperData.pdb
+index 92a0c2e..9ad0979 100644
+Binary files a/MagicMapperData/obj/Debug/MagicMapperData.pdb and b/MagicMapperData/obj/Debug/MagicMapperData.pdb differ

@@ -5,13 +5,6 @@
 
     public class StringCleanser : IStringCleanser
     {
-        private readonly ILog logger;
-
-        public StringCleanser(ILog logger)
-        {
-            this.logger = logger;
-        }
-
         public string Return_ClassName_ToString(string line)
         {
             string[] modifiersToReplace = { "class", "public", "internal", "static" };
@@ -48,7 +41,6 @@
             }
             catch
             {
-                logger.Error("Line incompatable '" + line + "'");
                 line = "Model name incompatable";
             }
             return line;
@@ -86,7 +78,6 @@
             }
             catch
             {
-                logger.Error("Line incompatable '" + line + "'");
                 result[0] = "null";
                 result[1] = "null";
             }
@@ -167,6 +158,19 @@
             int startIndex = line.IndexOf('.') + 1;
 
             result = line.Substring(startIndex, line.Length - startIndex);
+
+            return result;
+        }
+
+        public string Return_SQLModelUsed_ToString(string line)
+        {
+            string result = "";
+
+            int startCutIndex = line.IndexOf('(') + 1;
+            int endCutIndex = line.LastIndexOf(',');
+
+            if (endCutIndex > 0)
+                result = line.Substring(startCutIndex, (endCutIndex - startCutIndex));
 
             return result;
         }
